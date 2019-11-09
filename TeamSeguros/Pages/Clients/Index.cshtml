@@ -1,0 +1,44 @@
+﻿@page
+@model TeamSeguros.Pages.Clients.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de clientes</h1>
+
+<a asp-page="./Add">Añadir Cliente</a>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Tipo de documento</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Ciudad de residencia</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model.Clients)
+        {
+            
+            <tr>
+                <td>@client.Nombres</td>
+                <td>@client.Apellidos</td>
+                <td>@client.TipoDocumento</td>
+                <td>@client.NumeroDocumento</td>
+                <td>@client.FechaNacimiento.Date.ToString("dd-MM-yyyy")</td>
+                <td>@client.CiudadResidencia</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@client.Id" class="btn btn-success">Editar</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+

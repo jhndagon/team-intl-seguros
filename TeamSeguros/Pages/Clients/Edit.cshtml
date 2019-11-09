@@ -1,0 +1,62 @@
+﻿@page
+@model TeamSeguros.Pages.Clients.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h1>Editar información del cliente</h1>
+
+<form method="post">
+    <div class="row">
+        <div class="col">
+            <label>Nombres: </label>
+            <input asp-for="@Model.Client.Nombres" class="form-control" />
+
+        </div>
+        <div class="col">
+
+            <label>Apellidos: </label>
+            <input asp-for="@Model.Client.Apellidos" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label>Tipo de documento: </label>
+            <select class="form-control" id="sel1" asp-for="@Model.Client.TipoDocumento">
+                @foreach (var doc in Model.TipoDocumento)
+                {
+                    <option value="@doc">@doc</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+
+            <label>Documento: </label>
+            <input asp-for="@Model.Client.NumeroDocumento" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Ciudad de Residencia: </label>
+            <input asp-for="@Model.Client.CiudadResidencia" class="form-control" />
+        </div>
+        <div class="col">
+
+            <label>Fecha de nacimiento: </label>
+            <input asp-for="@Model.Client.FechaNacimiento" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-2">
+            <a asp-page="./Index" class="btn btn-danger btn-block"><i class="fas fa-arrow-left"></i> Ir Atrás</a>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary btn-block"><i class="far fa-save"></i> Guardar</button>
+        </div>
+    </div>
+    <input asp-for="@Model.Client.Id" hidden/>
+</form>
+
