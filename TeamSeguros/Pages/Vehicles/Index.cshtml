@@ -1,0 +1,56 @@
+﻿@page
+@model TeamSeguros.Pages.Vehicles.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de vehiculos de @Model.Client.Nombres</h1>
+
+<div class="row">
+    <div class="col-3">
+        <a asp-page="../Clients/Index" class="btn btn-danger btn-block"><i class="fas fa-arrow-left"></i> Ir Atrás</a>
+    </div>
+    <div class="col-5">
+        <a asp-page="./Add" asp-route-id="@Model.Client.Id" class="btn btn-primary">Añadir vehiculo</a>
+    </div>
+</div>
+
+<form method="post">
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Año</th>
+            <th scope="col">Valor seguro</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model.Vehicles != null)
+        {
+
+        @foreach (var vehicle in Model.Vehicles)
+        {
+
+            <tr>
+                <td>@vehicle.Marca</td>
+                <td>@vehicle.Modelo</td>
+                <td>@vehicle.Anio</td>
+                <td>@vehicle.ValorSeguro</td>
+                <td>
+                    <a asp-page="./BuyInsurance" asp-route-id="@vehicle.Id" class="btn btn-primary"><i class="far fa-edit"></i>Añadir seguro</a>
+                    <a asp-page="./Edit" asp-route-id="@vehicle.Id" class="btn btn-success"><i class="far fa-edit"></i>Editar</a>
+                    <button type="submit" asp-page-handler="Delete" asp-route-id="@vehicle.Id" class="btn btn-danger"><i class="far fa-trash-alt"></i>Elimar</button>
+                </td>
+            </tr>
+        }
+
+        }
+
+    </tbody>
+</table>
+
+</form>

@@ -10,20 +10,20 @@
     <div class="row">
         <div class="col">
             <label>Nombres: </label>
-            <input asp-for="@Model.Client.Nombres" class="form-control" />
+            <input asp-for="Client.Nombres" class="form-control" />
 
         </div>
         <div class="col">
 
             <label>Apellidos: </label>
-            <input asp-for="@Model.Client.Apellidos" class="form-control" />
+            <input asp-for="Client.Apellidos" class="form-control" />
         </div>
     </div>
 
     <div class="row">
         <div class="col">
             <label>Tipo de documento: </label>
-                <select class="form-control" id="sel1" asp-for="@Model.Client.TipoDocumento">
+                <select class="form-control" id="sel1" asp-for="Client.TipoDocumento">
                     @foreach (var doc in Model.TipoDocumento)
                     {
                         <option value="@doc">@doc</option>
@@ -33,18 +33,18 @@
         <div class="col">
 
             <label>Documento: </label>
-            <input asp-for="@Model.Client.NumeroDocumento" class="form-control"/>
+            <input asp-for="Client.NumeroDocumento" class="form-control"/>
         </div>
     </div>
     <div class="row">
         <div class="col">
             <label>Ciudad de Residencia: </label>
-            <input asp-for="@Model.Client.CiudadResidencia" class="form-control"/>
+            <input asp-for="Client.CiudadResidencia" class="form-control"/>
         </div>
         <div class="col">
 
             <label>Fecha de nacimiento: </label>
-            <input asp-for="@Model.Client.FechaNacimiento" class="form-control"/>
+            <input asp-for="Client.FechaNacimiento" class="form-control"/>
         </div>
     </div>
     <br />
@@ -57,5 +57,3 @@
         </div>
     </div>
 </form>
-
-

@@ -11,6 +11,7 @@ namespace TeamSeguros.Data
     {
 
         public DbSet<Client> Client { get; set; }
+        public DbSet<Vehicle> Vehicle { get; set; }
 
         public SeguroContext(DbContextOptions<SeguroContext> options)
             :base(options)

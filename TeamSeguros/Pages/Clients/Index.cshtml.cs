@@ -22,5 +22,11 @@ namespace TeamSeguros.Pages.Clients
         {
 
         }
+
+        public IActionResult OnPostDelete(Guid id)
+        {
+            ClientStore.DeleteClient(id);
+            return RedirectToPage();
+        }
     }
 }

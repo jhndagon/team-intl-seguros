@@ -36,6 +36,7 @@ namespace TeamSeguros
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddScoped<ClientStore>();
+            services.AddScoped<VehicleStore>();
 
             services.AddDbContext<SeguroContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("TglSQL")));
             //services.AddSingleton<ClientStore>();

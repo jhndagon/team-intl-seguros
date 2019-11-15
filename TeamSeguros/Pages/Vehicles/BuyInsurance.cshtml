@@ -1,0 +1,26 @@
+﻿@page
+@model TeamSeguros.Pages.Vehicles.BuyInsuranceModel
+@{
+    ViewData["Title"] = "BuyInsurance";
+}
+
+<h1>BuyInsurance</h1>
+
+@if (Model.Message != null && Model.Message != "")
+{
+
+<div class="card text-center">
+    <div class="card-header">
+        
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Model.Message</p>
+    <div class="col-2">
+        <a asp-page="./Index" class="btn btn-danger btn-block"><i class="fas fa-arrow-left"></i> Ir Atrás</a>
+    </div>
+    </div>
+    <div class="card-footer text-muted">
+        
+    </div>
+</div>
+}

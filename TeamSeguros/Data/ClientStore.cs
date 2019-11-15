@@ -27,6 +27,13 @@ namespace TeamSeguros.Data
             return this.SeguroContext.Client.Include(x => x.Vehiculos).ToList();
         }
 
+        internal void DeleteClient(Guid id)
+        {
+            var client = GetClientById(id);
+            SeguroContext.Client.Remove(client);
+            SeguroContext.SaveChanges();
+        }
+
         internal List<string> GetTipoDocumento()
         {
             return Enum.GetNames(typeof(TipoDocumento)).ToList();
@@ -34,7 +41,7 @@ namespace TeamSeguros.Data
 
         internal Client GetClientById(Guid id)
         {
-            return SeguroContext.Client.FirstOrDefault<Client>(x => x.Id == id);
+            return SeguroContext.Client.Include(x => x.Vehiculos).FirstOrDefault<Client>(x => x.Id == id);
         }
 
         internal void UpdateClient(Client client)

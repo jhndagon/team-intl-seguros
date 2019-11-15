@@ -11,7 +11,8 @@ namespace TeamSeguros.Models
         public String Marca { get; set; }
         public String Modelo { get; set; }
         public int Anio { get; set; }
-        public Guid IdCliente { get; set; }
+        public Guid ClientId { get; set; }
+        public double ValorSeguro { get; set; }
 
         public Vehicle()
         {

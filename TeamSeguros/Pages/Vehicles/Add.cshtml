@@ -1,0 +1,37 @@
+﻿@page
+@model TeamSeguros.Pages.Vehicles.AddModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Información vehiculo</h1>
+
+<form method="post">
+    <input hidden asp-for="IdClient"/>
+    <div class="row">
+        <div class="col">
+            <label>Marca: </label>
+            <input asp-for="Vehicle.Marca" class="form-control" />
+
+        </div>
+        <div class="col">
+
+            <label>Modelo: </label>
+            <input asp-for="Vehicle.Modelo" class="form-control" />
+        </div>
+
+        <div class="col">
+            <label>Año: </label>
+            <input asp-for="Vehicle.Anio" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-2">
+            <a asp-page="./Index" class="btn btn-danger btn-block"><i class="fas fa-arrow-left"></i> Ir Atrás</a>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary btn-block"><i class="far fa-save"></i> Guardar</button>
+        </div>
+    </div>
+</form>
