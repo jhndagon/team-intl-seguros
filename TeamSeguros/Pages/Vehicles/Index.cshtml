@@ -11,7 +11,7 @@
         <a asp-page="../Clients/Index" class="btn btn-danger btn-block"><i class="fas fa-arrow-left"></i> Ir Atrás</a>
     </div>
     <div class="col-5">
-        <a asp-page="./Add" asp-route-id="@Model.Client.Id" class="btn btn-primary">Añadir vehiculo</a>
+        <a asp-page="./Add" asp-route-id="@Model.Client.Id" class="btn btn-primary"><i class="fas fa-truck-pickup"></i> Añadir vehiculo</a>
     </div>
 </div>
 
@@ -41,9 +41,9 @@
                 <td>@vehicle.Anio</td>
                 <td>@vehicle.ValorSeguro</td>
                 <td>
-                    <a asp-page="./BuyInsurance" asp-route-id="@vehicle.Id" class="btn btn-primary"><i class="far fa-edit"></i>Añadir seguro</a>
-                    <a asp-page="./Edit" asp-route-id="@vehicle.Id" class="btn btn-success"><i class="far fa-edit"></i>Editar</a>
-                    <button type="submit" asp-page-handler="Delete" asp-route-id="@vehicle.Id" class="btn btn-danger"><i class="far fa-trash-alt"></i>Elimar</button>
+                    <a asp-page="./BuyInsurance" asp-route-id="@vehicle.Id" class="btn btn-primary"><i class="fas fa-first-aid"></i> Añadir seguro</a>
+                    <a asp-page="./Edit" asp-route-id="@vehicle.Id" class="btn btn-success"><i class="far fa-edit"></i> Editar</a>
+                    <button type="submit" asp-page-handler="Delete" asp-route-id="@vehicle.Id" class="btn btn-danger"><i class="far fa-trash-alt"></i> Elimar</button>
                 </td>
             </tr>
         }

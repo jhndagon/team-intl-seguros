@@ -12,6 +12,8 @@ namespace TeamSeguros.Pages.Vehicles
     {
         public VehicleStore VehicleStore { get; set; }
         public ClientStore ClientStore { get; set; }
+        [BindProperty]
+        public Guid Id { get; set; }
         [TempData]
         public String Message { get; set; }
         public BuyInsuranceModel(VehicleStore vehicleStore, ClientStore clientStore)
@@ -23,6 +25,7 @@ namespace TeamSeguros.Pages.Vehicles
         {
             var vehicle = VehicleStore.GetVehicleById(id);
             var client = ClientStore.GetClientById(vehicle.ClientId);
+            Id = vehicle.ClientId;
             double precioBase = 1000000.0;
             if(DateTime.Now.Year - client.FechaNacimiento.Year < 16)
             {

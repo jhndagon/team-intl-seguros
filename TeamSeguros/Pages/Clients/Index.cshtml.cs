@@ -15,12 +15,19 @@ namespace TeamSeguros.Pages.Clients
         public ClientStore ClientStore { get; set; }
         public IndexModel(ClientStore clientStore)
         {
-            ClientStore = clientStore;
-            Clients = ClientStore.GetClients();
+            ClientStore = clientStore;            
         }
-        public void OnGet()
+        public void OnGetAsync(string searchString)
         {
-
+            Clients = ClientStore.GetClients();
+            if(searchString != null && searchString.Count() >=0)
+            {
+                var data = Clients.Where(x => x.Nombres.Contains(searchString) || x.Apellidos.Contains(searchString) || x.CiudadResidencia.Contains(searchString) || x.NumeroDocumento.Contains(searchString) );
+                if(data != null)
+                {
+                    Clients = data.ToList();
+                }
+            }
         }
 
         public IActionResult OnPostDelete(Guid id)
